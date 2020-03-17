@@ -5,7 +5,7 @@ import urllib.parse
 from werkzeug.urls import url_parse
 from flask_login import LoginManager, login_required, current_user, login_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
-
+#Comentario
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
