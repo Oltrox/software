@@ -6,7 +6,7 @@ login_manager = LoginManager()
 db = SQLAlchemy()
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_url_path="/")
     app.config['DEBUG'] = True
     app.config['TESTING'] = True
     app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
