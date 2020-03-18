@@ -14,6 +14,7 @@ def index():
 @public_bp.route("/p/<string:slug>/")
 def show_post(slug):
     post = Post.get_by_slug(slug)
+    
     if post is None:
         raise NotFound(slug)
     return render_template("public/post_view.html", post=post)

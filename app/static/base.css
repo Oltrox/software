@@ -1,5 +1,7 @@
 body {
     min-height: 100vh; 
+    position: relative;
+
   }
   
   .flex-grow {
@@ -73,4 +75,6 @@ footer {
     height: 100px;
     bottom: 0;
     width: 100%;
+    clear: both;
+
 }
