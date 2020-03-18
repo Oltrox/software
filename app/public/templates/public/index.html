@@ -1,9 +1,34 @@
 {% extends "base_template.html" %}
 {% block title %}Tutorial Flask: Miniblog{% endblock %}
 {% block content %}
-    <ul>
-    {% for post in posts %}
-        <li><a href="{{ post.public_url() }}">{{ post.title }}</a></li>
+
+<div class="row">
+    {% for post in posts.items %}
+        <h3>{{ post.title }}</h3>
     {% endfor %}
-    </ul>
+</div>
+
+<div class="row">
+    <div class="col-12" align="center">
+        {% if posts.has_prev %}
+        <a style="letter-spacing: -2px;" href="{{ url_for('public.index', page=posts.prev_num) }}">&#60;&#60;</a>
+        {% endif %}
+
+        {% for num_pag in posts.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=3) %}
+        {% if num_pag %}
+            {% if page == page_num %}
+            <a style="min-width: 43px;" href="{{ url_for('public.index', page=page_num) }}">{{ page_num }}</a>
+            {% else %}
+            <a style="min-width: 43px;" href="{{ url_for('public.index', page=page_num) }}">{{ page_num }}</a>
+            {% endif %}
+        {% else %}
+            <a>&middot;&middot;&middot;</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if posts.has_next %}
+        <a style="letter-spacing: -2px;" href="{{ url_for('public.index', page=posts.next_num) }}">&#62;&#62;</a>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

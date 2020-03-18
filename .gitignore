@@ -8,9 +8,13 @@ env2/
 .vscode/
 key
 key.pub
+<<<<<<< HEAD
+env
+=======
 env
 Readme
 
 Llaves y config/
 
 config.txt
+>>>>>>> rodrigo_merge

@@ -1,9 +1,60 @@
 {% extends "base_template.html" %}
 {% block title %}Tutorial Flask: Miniblog{% endblock %}
 {% block content %}
-    <ul>
-    {% for post in posts %}
-        <li><a href="{{ post.public_url() }}">{{ post.title }}</a></li>
-    {% endfor %}
-    </ul>
+
+<div class="container">
+    {% if posts %}
+    <div class="container pb-4">
+        <section class="container-fluid flex-grow">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Publicaciones</h1>
+                    <p class="lead">Estas son las publicaciones disponibles.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+
+        <div class="accordion" id="accordionExample">
+            {% for post in posts %}
+            <div class="card">
+                <div class="card-header" id="{{ post.title }}">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                            data-target="#{{ post.title_slug }}" aria-expanded="true" aria-controls="collapseOne">
+                            {{ post.title }}
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="{{ post.title_slug }}" class="collapse" aria-labelledby="{{ post.title }}"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        <h4>Contenido: </h4>
+                        <p class="card-text">{{ post.content }}</p>
+                        <!-- <p class="card-text">{{ post.title_slug }}</p> -->
+                        <a href="#" class="btn btn-primary">Ver el post completo</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenido a MiniPost</h1>
+        <p class="lead">Te ayudamos a publicar y a conectarte con publicaciones de otros desarrolladores para empoderar
+            tus productos y soluciones. </p>
+        <hr class="my-4">
+        <p>Aun no tenemos publicaciones, que esperas! Se el primero en compartir tu conocimiento.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('post_form') }}" role="button">Publicar</a>
+    </div>
+
+    {% endif%}
+</div>
+
 {% endblock %}
