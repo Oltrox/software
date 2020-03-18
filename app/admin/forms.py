@@ -5,3 +5,4 @@ class PostForm(FlaskForm):
     title = StringField('Título', validators=[DataRequired(), Length(max=128)])
     content = TextAreaField('Contenido')
     submit = SubmitField('Enviar')
+    

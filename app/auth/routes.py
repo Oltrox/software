@@ -31,7 +31,7 @@ def show_signup_form():
             login_user(user, remember=True)
             next_page = request.args.get('next', None)
             if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('index')
+                next_page = url_for('public.index')
             return redirect(next_page)
     return render_template("auth/signup_form.html", form=form, error=error)
 
@@ -47,7 +47,7 @@ def login():
             login_user(user, remember=form.remember_me.data)
             next_page = request.args.get('next')
             if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('index')
+                next_page = url_for('public.index')
             return redirect(next_page)
     return render_template('auth/login_form.html', form=form)
 

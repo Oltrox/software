@@ -7,7 +7,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('blog_user.id', ondelete='CASCADE'), nullable=False)
     title = db.Column(db.String(256), nullable=False)
     title_slug = db.Column(db.String(256), unique=True, nullable=False)
-    content = db.Column(db.Text)
+    content = db.Column(db.String())
     def __repr__(self):
         return f'<Post {self.title}>'
 
@@ -16,6 +16,7 @@ class Post(db.Model):
             db.session.add(self)
         if not self.title_slug:
             self.title_slug = slugify(self.title)
+
         saved = False
         count = 0
         while not saved:
