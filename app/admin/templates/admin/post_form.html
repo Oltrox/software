@@ -10,9 +10,20 @@ Nuevo post
 
 {% block content %}
 
-<div class="card">
+
+<div class="card bg-light mb-3">
+   
+<div class="col-md-12">
+        <div class="thumbnail">
+            
+        </div>
+    </div>
+
     <div class="card-header">
-        Formulario de posteo
+        <img align="left"  class="hola" src="{{ url_for('static', filename='img/descarga2.png') }}"  style="height:9%; width:9%;">
+       <br>
+       <br>
+       <h1 align= "center" style="font-family:oblique bold 120% cursive"> Formulario de posteo</h1>
     </div>
     <div class="card-body">
         <form action="" method="POST" novalidate>
@@ -35,7 +46,7 @@ Nuevo post
                 <div class="input-group-prepend">
                     <span class="input-group-text">Contenido</span>
                 </div>
-                {% set attribs = { 'class':"form-control", 'aria-label':"With textarea", 'placeholder':"El limite es el cielo" } %}
+                {% set attribs = { 'class':"form-control", 'aria-label':"With textarea", 'placeholder':"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum" } %}
                 {{ form.content(**attribs) }} <br>
                 {% for error in form.content.errors %}
                 <span style="color: red;">{{ error }}</span>
@@ -50,6 +61,12 @@ Nuevo post
     </div>
 </div>
 
+
+<div class="col-md-12">
+        <div class="thumbnail">
+            <img align="middle"  class="hola" src="{{ url_for('static', filename='img/hola.png') }}"  style="height:30%; width:30%;">
+        </div>
+    </div>
 
 
 
