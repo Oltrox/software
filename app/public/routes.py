@@ -1,12 +1,15 @@
-from flask import abort, render_template
+from flask import abort, render_template, request
 from app.models import Post
 from . import public_bp
 from werkzeug.exceptions import NotFound
 
 @public_bp.route("/")
 def index():
-    posts = Post.get_all()
-    return render_template('public/index.html', posts=posts)
+    # Para la paginacion
+    page = request.args.get('page', 1, type=int)
+    
+    posts = Post.query.paginate(per_page=6, page=page)
+    return render_template('public/index.html', posts=posts, page=page)
 
 @public_bp.route("/p/<string:slug>/")
 def show_post(slug):

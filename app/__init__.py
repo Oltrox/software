@@ -15,7 +15,6 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     app.config['USE_SESSION_FOR_NEXT']=True
     app.config['SQLALCHEMY_POOL_SIZE']=100
-    login_manager = LoginManager(app)
     login_manager.init_app(app)
     login_manager.login_view = "auth.login"
 
