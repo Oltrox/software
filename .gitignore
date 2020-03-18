@@ -5,16 +5,13 @@ id_rsa
 id_rsa.pub
 software.zip
 env2/
+env2.old/
 .vscode/
 key
 key.pub
-<<<<<<< HEAD
-env
-=======
 env
 Readme
 
 Llaves y config/
 
 config.txt
->>>>>>> rodrigo_merge

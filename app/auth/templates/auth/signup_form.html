@@ -29,7 +29,7 @@
                     {{ form.hidden_tag() }}
                     <div class="form-group">
                         {{ form.name.label }}
-                        {{ form.name(size=64, type="name", class="form-control", placeholder="Ingrese correo", autocomplete="ÑÖcompletes") }}<br>
+                        {{ form.name(size=64, type="name", class="form-control", placeholder="Ingrese nombre", autocomplete="ÑÖcompletes") }}<br>
                         {% for error in form.name.errors %}
                         <span style="color: red;">{{ error }}</span>
                         {% endfor %}
