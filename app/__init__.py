@@ -11,7 +11,8 @@ def create_app():
     app.config['TESTING'] = True
     app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
     #APP CONFIG DE LA BASE DE DATOS EN MAQUINA VIRTUAL DANI
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://bravo:bravo@179.9.115.60/software'
+    #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://bravo:bravo@179.9.115.60/software'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://moran:moran@192.168.0.250/software'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     app.config['USE_SESSION_FOR_NEXT']=True
     app.config['SQLALCHEMY_POOL_SIZE']=100

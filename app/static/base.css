@@ -37,8 +37,9 @@ body {
     height: 42px;
     font-size: 18px;
     border:0;
-    padding-left: 54px;
+    padding-left: 20px;
     border-radius: 5px;
+    background-color: rgba(240, 235, 235, 0.924);
 }
 
 .form-group::before{

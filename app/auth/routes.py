@@ -41,6 +41,7 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
+    error = None
     if form.validate_on_submit():
         user = User.get_by_email(form.email.data)
         if user is not None and user.check_password(form.password.data):
@@ -49,7 +50,9 @@ def login():
             if not next_page or url_parse(next_page).netloc != '':
                 next_page = url_for('public.index')
             return redirect(next_page)
-    return render_template('auth/login_form.html', form=form)
+        else:
+            error = "Correo o contraseña incorrectos"
+    return render_template('auth/login_form.html', form=form, error=error)
 
 
 @auth_bp.route('/logout')

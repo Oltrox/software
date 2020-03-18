@@ -1,5 +1,6 @@
 from flask import url_for
-from slugify import slugify
+try: from slugify import slugify 
+except: pass
 from sqlalchemy.exc import IntegrityError
 from app import db
 class Post(db.Model):
