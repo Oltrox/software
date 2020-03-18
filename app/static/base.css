@@ -73,9 +73,16 @@ button{
   
 footer {
     position: fixed;
-    height: 100px;
     bottom: 0;
     width: 100%;
     clear: both;
 
+}
+img {
+  border-radius: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  opacity: 0.8;
 }
